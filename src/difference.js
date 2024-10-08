@@ -1,48 +1,48 @@
 import _ from 'lodash';
 
-const buildDifferenceTree = (dataFile1, dataFile2) => {
-  const keysDataFile1 = _.sortBy(Object.keys(dataFile1));
-  const keysDataFile2 = _.sortBy(Object.keys(dataFile2));
-  const unionKeys = _.union(keysDataFile1, keysDataFile2);
+function buildDiffTree(data1, data2) {
+  const keysData1 = _.sortBy(Object.keys(data1));
+  const keysData2 = _.sortBy(Object.keys(data2));
+  const unionKeys = _.union(keysData1, keysData2);
 
-  const differenceTree = unionKeys.map((key) => {
-    if (_.isPlainObject(dataFile1[key]) && _.isPlainObject(dataFile2[key])) {
+  const diffTree = unionKeys.map((key) => {
+    if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
       return {
         key,
         type: 'nested',
-        children: buildDifferenceTree(dataFile1[key], dataFile2[key]),
+        children: buildDiffTree(data1[key], data2[key]),
       };
     }
-    if (!Object.hasOwn(dataFile1, key)) {
+    if (!Object.hasOwn(data1, key)) {
       return {
         key,
         type: 'added',
-        value: dataFile2[key],
+        value: data2[key],
       };
     }
-    if (!Object.hasOwn(dataFile2, key)) {
+    if (!Object.hasOwn(data2, key)) {
       return {
         key,
         type: 'removed',
-        value: dataFile1[key],
+        value: data1[key],
       };
     }
-    if (_.isEqual(dataFile1[key], dataFile2[key])) {
+    if (_.isEqual(data1[key], data2[key])) {
       return {
         key,
         type: 'unchanged',
-        value: dataFile1[key],
+        value: data1[key],
       };
     }
     return {
       key,
       type: 'changed',
-      value1: dataFile1[key],
-      value2: dataFile2[key],
+      value1: data1[key],
+      value2: data2[key],
     };
   });
 
-  return differenceTree;
-};
+  return diffTree;
+}
 
-export default buildDifferenceTree;
+export default buildDiffTree;
