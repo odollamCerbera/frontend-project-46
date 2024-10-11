@@ -1,1 +1,1 @@
-import genDiff from "../index.js";
+import genDiff from '../index.js';
