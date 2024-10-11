@@ -26,8 +26,10 @@ const stringify = (node, parent = '') => {
 };
 
 const plain = (difference) => {
-  return difference.map((node) => stringify(node))
-    .filter((result) => result !== null).join('\n');
+  const result = difference.map((node) => stringify(node))
+    .filter((line) => line !== null);
+
+  return result.join('\n');
 };
 
 export default plain;
