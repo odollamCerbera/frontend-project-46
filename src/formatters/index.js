@@ -7,7 +7,7 @@ const defineFormatter = (difference, format = 'stylish') => {
     case 'json':
       return json(difference);
     case 'plain':
-      return plain(difference).trim();
+      return plain(difference);
     case 'stylish':
       return stylish(difference);
     default:
