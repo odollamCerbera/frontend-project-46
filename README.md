@@ -1,5 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/odollamCerbera/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/odollamCerbera/frontend-project-46/actions)
+[![.github/workflows/nodejs.yml](https://github.com/odollamCerbera/frontend-project-46/actions/workflows/nodejs.yml/badge.svg)](https://github.com/odollamCerbera/frontend-project-46/actions/workflows/nodejs.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d770fa79fd535cae76d3/maintainability)](https://codeclimate.com/github/odollamCerbera/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d770fa79fd535cae76d3/test_coverage)](https://codeclimate.com/github/odollamCerbera/frontend-project-46/test_coverage)
 
