@@ -19,3 +19,6 @@ indent_size = 2
 [*.yaml]
 indent_style = space
 indent_size = 2
+
+[*.txt]
+insert_final_newline = false
